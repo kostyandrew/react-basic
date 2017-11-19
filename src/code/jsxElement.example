@@ -1,0 +1,11 @@
+<div>
+    <img src="path/to/image" alt=""/>
+    <b>Bold text</b>
+</div>
+
+React.createElement(
+    "div",
+    null,
+    React.createElement("img", { src:"path/to/image", alt:"" }, null),
+    React.createElement("b", null, "Bold text")
+);

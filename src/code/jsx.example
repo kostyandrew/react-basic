@@ -1,0 +1,15 @@
+const Form = <div>
+    <label htmlFor="field">Field</label>
+    <input
+        type={inputType || "text"}
+        value={inputValue}
+        id="field"
+        onChange={(e) => setValue(e.target.value)}
+    />
+</div>
+
+<div className={`text-${status}`}>
+    {imgSrc && <img src={imgSrc} alt="some image"/>}
+    First Line <br/> {text ? `Some ${text}` : "Second Line"}
+    <Form/>
+</div>

@@ -1,0 +1,14 @@
+<ul>
+    ["first", "second", "third"].map((el, id) => <li key={id}>{el}</li>)
+</ul>
+
+<section>
+    articlesList
+        .map((article) => ([
+            <article key={`article-${article.id}`}>
+                <h1>{article.header}</h1>
+                <p>{article.text}</p>
+            </article>,
+            <hr key={`hr-${article.id}`}/>
+        ]))
+</section>

@@ -1,0 +1,12 @@
+<section>
+    articlesList
+        .map((article) => (
+            <>
+                <article>
+                    <h1>{article.header}</h1>
+                    <p>{article.text}</p>
+                </article>
+                <hr/>
+            </>
+        ]))
+</section>

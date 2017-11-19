@@ -1,0 +1,13 @@
+const visible = false;
+
+<Component visible={visible}>
+    Hidden
+</Component>
+
+<Component visible>
+    Still visible
+</Component>
+
+<Component visible={true}>
+    Still visible
+</Component>
