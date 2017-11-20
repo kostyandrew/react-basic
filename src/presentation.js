@@ -1,8 +1,8 @@
 // Import React
 import React from 'react';
-import Prism from "prismjs";
-import 'prismjs/components/prism-jsx.min';
-import 'prismjs/components/prism-bash.min';
+// import Prism from "prismjs";
+// import 'prismjs/components/prism-jsx.min';
+// import 'prismjs/components/prism-bash.min';;
 // Import Spectacle Core tags
 import {
 	BlockQuote,
@@ -14,12 +14,16 @@ import {
 	Quote,
 	Slide,
 	Text,
-	Image
+	Image,
+	CodePane,
 } from 'spectacle';
+import 'prismjs/components/prism-bash'
+import 'prismjs/components/prism-jsx'
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
 
+import Form from "./code/Form";
 import Welcome from "./code/Welcome";
 import Counter from "./code/Counter";
 import Input from "./code/Input";
@@ -42,24 +46,23 @@ const theme = createTheme(
 	}
 );
 
+require("prismjs/themes/prism-coy.css");
 require('./style.css');
-require("prismjs/themes/prism.css");
 
-const Code = (props) => {
-	const lang = props.lang || "javascript";
-	const codeHtml = Prism.highlight(props.code, Prism.languages[lang]);
-	return <pre
+const Code = (props) => (
+	<CodePane
+		theme="light"
+		lang={props.lang}
+		source={props.code}
 		style={{
 			marginTop: "1rem",
-			fontSize: 20,
+			height: (props.height || "auto"),
 			padding: "0.5rem",
 			lineHeight: 1.3,
-			overflow: "auto",
-			height: (props.height || "auto")
+			fontSize: "20"
 		}}
-		className={"line-numbers language-" + lang}><code
-		dangerouslySetInnerHTML={{ __html: codeHtml }}/></pre>;
-}
+	/>
+);
 
 export default class Presentation extends React.Component {
 	render() {
@@ -210,10 +213,11 @@ export default class Presentation extends React.Component {
 					<Heading size={1} lineHeight={1} textColor="white">
 						Class Component
 					</Heading>
-					<br/>
+				</Slide>
+				<Slide bgColor="secondary">
 					<Code
 						lang="jsx"
-						height="50vh"
+						height="60vh"
 						code={require("!raw-loader!./code/Counter.jsx")}
 					/>
 				</Slide>
@@ -253,6 +257,24 @@ export default class Presentation extends React.Component {
 					<input type="text" value={"Default Value"} onChange={() => false}/>
 					<Input value={"Default Value"}/>
 				</Slide>
+
+				<Slide bgColor="secondary">
+					<Heading size={1} lineHeight={1} textColor="white">
+						Форми
+					</Heading>
+				</Slide>
+
+				<Slide bgColor="secondary">
+					<Code
+						lang="jsx"
+						height="40vh"
+						code={require("!raw-loader!./code/Form.jsx")}
+					/>
+					<Text textColor="white">
+						<Form/>
+					</Text>
+				</Slide>
+
 				<Slide bgColor="primary">
 					<Heading size={1} lineHeight={1} textColor="secondary">
 						Життєвий цикл компонент
@@ -334,15 +356,15 @@ export default class Presentation extends React.Component {
 					<Heading size={1} style={{ fontSize: "3rem" }} lineHeight={1} textColor="secondary">
 						React + Classes + JSX
 					</Heading>
-					<br />
+					<br/>
 					<Heading size={1} style={{ fontSize: "3rem" }} lineHeight={1} textColor="secondary">
 						+ Babel + Webpack
 					</Heading>
-					<br />
+					<br/>
 					<Heading size={1} style={{ fontSize: "5rem" }} lineHeight={1} textColor="secondary">
 						= Create React App
 					</Heading>
-					<br />
+					<br/>
 					<Code
 						lang="bash"
 						code="npm i create-react-app -G"
