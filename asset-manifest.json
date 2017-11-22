@@ -1,9 +1,17 @@
 {
   "main.css": "static/css/main.5368846b.css",
   "main.css.map": "static/css/main.5368846b.css.map",
-  "main.js": "static/js/main.3bf16d64.js",
-  "main.js.map": "static/js/main.3bf16d64.js.map",
+  "main.js": "static/js/main.1f3763a0.js",
+  "main.js.map": "static/js/main.1f3763a0.js.map",
+  "static/media/akulov.jpg": "static/media/akulov.ca4eb0ee.jpg",
   "static/media/cucumber.jpg": "static/media/cucumber.42040955.jpg",
+  "static/media/dan.jpg": "static/media/dan.250c0286.jpg",
+  "static/media/devtools.jpg": "static/media/devtools.87366734.jpg",
+  "static/media/facebook.png": "static/media/facebook.0a4499cb.png",
+  "static/media/hw.png": "static/media/hw.af0be17c.png",
+  "static/media/logo.svg": "static/media/logo.4009eef3.svg",
+  "static/media/me.jpg": "static/media/me.a59b0a93.jpg",
   "static/media/nuclear.jpg": "static/media/nuclear.482c259c.jpg",
-  "static/media/reactive.jpg": "static/media/reactive.e0025f7a.jpg"
+  "static/media/reactive.jpg": "static/media/reactive.e0025f7a.jpg",
+  "static/media/slides.png": "static/media/slides.ae76cf3a.png"
 }
