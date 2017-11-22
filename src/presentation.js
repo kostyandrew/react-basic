@@ -15,7 +15,9 @@ import {
 	Slide,
 	Text,
 	Image,
+	Link,
 	CodePane,
+	Appear
 } from 'spectacle';
 import 'prismjs/components/prism-bash'
 import 'prismjs/components/prism-jsx'
@@ -58,7 +60,7 @@ const Code = (props) => (
 			marginTop: "1rem",
 			height: (props.height || "auto"),
 			padding: "0.5rem",
-			lineHeight: 1.3,
+			lineHeight: 1.2,
 			fontSize: "20"
 		}}
 	/>
@@ -68,35 +70,49 @@ export default class Presentation extends React.Component {
 	render() {
 		return (
 			<Deck
-				transition={['zoom', 'slide']}
+				transition={['slide']}
 				transitionDuration={500}
 				theme={theme}
 			>
-				<Slide transition={['zoom']} bgColor="primary">
-					<Heading size={1} fit caps lineHeight={1} textColor="secondary">
-						React Basics
+				<Slide bgColor="primary">
+
+					<br/>
+					<Heading size={1} caps lineHeight={"30vh"} textColor="secondary" style={{ fontSize: 70 }}>
+						<Image display="inline-block" src={require("./resources/logo.svg")} height="30vh"
+									 style={{ verticalAlign: "bottom", margin: 0 }}/> React Basics
 					</Heading>
+					<Text textColor="secondary"
+								style={{ marginTop: "20vh", textAlign: "left", fontSize: "3.5vh", lineHeight: "8vh" }}>
+						<Image height="16vh" src={require("./resources/me.jpg")} display="inline-block"
+									 style={{ verticalAlign: "bottom", margin: 0, float: 'left', marginRight: "2rem" }}/>
+						<span>Andrii Kostetskyi</span>
+						<br/>
+						<span>Fullstack Developer in <i>ASD</i>, NodeSchool Chernivtsi</span>
+					</Text>
 				</Slide>
-				<Slide transition={['zoom']} bgColor="primary">
-					<Heading size={1} fit caps lineHeight={1} textColor="secondary">
+				<Slide bgColor="primary">
+					<Image src={require("./resources/facebook.png")} height="30vh"/>
+				</Slide>
+				<Slide bgColor="secondary">
+					<Heading size={1} fit caps lineHeight={1} textColor="primary">
 						Що таке React?
 					</Heading>
 				</Slide>
-				<Slide transition={['zoom']} bgColor="primary" bgImage={require('./resources/reactive.jpg')} bgPosition="0% 25%"
+				<Slide bgColor="primary" bgImage={require('./resources/reactive.jpg')} bgPosition="0% 25%"
 							 bgDarken="0.3">
 					<Heading size={1} fit caps lineHeight={1} textColor="white">
 						Reactive programming?
 					</Heading>
 				</Slide>
 
-				<Slide transition={['zoom']} bgColor="primary" bgImage={require('./resources/cucumber.jpg')}>
+				<Slide bgColor="primary" bgImage={require('./resources/cucumber.jpg')}>
 					<Heading size={1} fit caps lineHeight={1} textColor="white">
 						Реактивний рух?
 					</Heading>
 				</Slide>
 
-				<Slide transition={['zoom']} bgColor="primary">
-					<Heading size={1} fit caps lineHeight={1} textColor="tertiary">
+				<Slide bgColor="primary">
+					<Heading size={1} fit caps lineHeight={1} textColor="secondary">
 						Ядерні технології?
 					</Heading>
 					<Text>
@@ -175,7 +191,7 @@ export default class Presentation extends React.Component {
 
 				<Slide bgColor="secondary">
 					<Heading size={1} lineHeight={1} textColor="white">
-						Function Component
+						Functional Component
 					</Heading>
 					<br/>
 					<Code
@@ -357,22 +373,105 @@ export default class Presentation extends React.Component {
 						React + Classes + JSX
 					</Heading>
 					<br/>
+					<Appear order={1}>
+						<Heading size={1} style={{ fontSize: "3rem" }} lineHeight={1} textColor="secondary">
+							+ Babel + Webpack
+						</Heading>
+					</Appear>
+
+					<br/>
+
+					<Appear order={2}>
+						<Heading size={1} style={{ fontSize: "5rem" }} lineHeight={1} textColor="secondary">
+							= <Link href="https://github.com/facebookincubator/create-react-app" textColor="tertiary">Create React
+							App</Link>
+						</Heading>
+					</Appear>
+					<br/>
+					<Appear order={3}>
+						<Text>
+							<Code
+								lang="bash"
+								code="npm i create-react-app -G"
+							/>
+							<Code
+								lang="bash"
+								code="create-react-app my-app"
+							/>
+						</Text>
+					</Appear>
+				</Slide>
+
+				<Slide bgColor="white">
+					<Text textColor="secondary">
+						<Heading size={1} style={{ fontSize: "3rem" }} lineHeight={1} textColor="secondary">
+							Документація та гайди
+						</Heading>
+						<br/>
+						<Link href="https://reactjs.org/" textColor="tertiary">reactjs.org</Link>
+					</Text>
+				</Slide>
+
+				<Slide bgColor="secondary">
 					<Heading size={1} style={{ fontSize: "3rem" }} lineHeight={1} textColor="secondary">
-						+ Babel + Webpack
+						<Link href="https://github.com/facebook/react-devtools" textColor="tertiary">React Dev Tools</Link>
 					</Heading>
 					<br/>
+
+					<Image src={require("./resources/devtools.jpg")}/>
+				</Slide>
+
+				<Slide bgColor="white">
+					<Image src={require("./resources/dan.jpg")} height={"50vh"}/>
 					<Heading size={1} style={{ fontSize: "5rem" }} lineHeight={1} textColor="secondary">
-						= Create React App
+						Dan Abramov
 					</Heading>
 					<br/>
-					<Code
-						lang="bash"
-						code="npm i create-react-app -G"
-					/>
-					<Code
-						lang="bash"
-						code="create-react-app my-app"
-					/>
+					<Link href="https://twitter.com/dan_abramov" textColor="tertiary">Twitter: @dan_abramov</Link>
+					<br/>
+					<Link href="https://github.com/gaearon" textColor="tertiary">Github: @gaearon</Link>
+				</Slide>
+
+				<Slide bgColor="white">
+					<Image src={require("./resources/akulov.jpg")} height={"50vh"}/>
+					<Heading size={1} style={{ fontSize: "5rem" }} lineHeight={1} textColor="secondary">
+						Ivan Akulov
+					</Heading>
+					<br/>
+					<Link href="https://twitter.com/iamakulov" textColor="tertiary">Twitter: @iamakulov</Link>
+					<br/>
+					<Link href="https://telegram.me/iamakulov_channel" textColor="tertiary">Telegram канал</Link>
+					<br/>
+					<Link href="https://iamakulov.com/" textColor="tertiary">Блог</Link>
+				</Slide>
+
+				<Slide bgColor="white">
+					<Image src={require("./resources/me.jpg")} height={"50vh"}/>
+					<Heading size={1} style={{ fontSize: "5rem" }} lineHeight={1} textColor="secondary">
+						Andrii Kostetskyi
+					</Heading>
+					<Text>@kostyandrew</Text>
+					<Link href="https://telegram.me/kostyandrew" textColor="tertiary">Telegram</Link>
+					{" | "}
+					<Link href="https://github.com/kostyandrew" textColor="tertiary">Github</Link>
+				</Slide>
+
+				<Slide bgColor="white">
+					<Image src={require("./resources/slides.png")} height={"50vh"}/>
+					<Text textColor="secondary">
+						<Link href="https://kostyandrew.github.io/react-basic/" textColor="tertiary">kostyandrew.github.io/react-basic/</Link>
+					</Text>
+				</Slide>
+
+				<Slide bgColor="white">
+					<Image src={require("./resources/hw.png")} height={"50vh"}/>
+					<Text textColor="secondary">
+						<Link href="https://github.com/kottans/chernivtsi-frontend-2017/tree/master/homeworks/react-basic"
+									textColor="tertiary">kottans/chernivtsi-frontend-2017/homeworks/react-basic</Link>
+					</Text>
+				</Slide>
+				<Slide bgColor="primary">
+					<Heading size={1} fit caps style={{ fontFamily: "Times New Roman" }} textColor="secondary">Fin</Heading>
 				</Slide>
 			</Deck>
 		);
